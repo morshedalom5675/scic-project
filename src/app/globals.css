@@ -1,0 +1,34 @@
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: booktheme, light;
+}
+
+/* কাস্টম থিমের কালার ডিফাইন করুন */
+@custom-variant dark (&:where(.dark, [data-theme="dark"], [data-theme="dark"] *));
+
+@theme {
+  --color-primary: #024343;
+  --color-secondary: #036666;
+  --color-accent: #028484;
+}
+
+/* DaisyUI v5 কাস্টম থিম কনফিগারেশন */
+[data-theme="booktheme"] {
+  /* প্রাইমারি কালারগুলো আগের মতোই থাকছে */
+  --color-primary: #024343;
+  --color-primary-content: #ffffff;
+  --color-secondary: #036666;
+  --color-accent: #028484;
+
+  /* আপনার নতুন বেস কালার */
+  --color-base-100: #b7bab2;
+  --color-base-200: #a1a59c; 
+  --color-base-300: #8c9186;
+
+  /* টেক্সট কালার (এটি আপনার প্রাইমারি কালারের সাথে মিলিয়ে দেওয়া হয়েছে যাতে সুন্দর দেখায়) */
+  --color-base-content: #012a2a;
+
+  /* নিউট্রাল কালার (বাটন বা অন্যান্য এলিমেন্টের জন্য) */
+  --color-neutral: #1a1c18;
+  --color-neutral-content: #ffffff;
+}
