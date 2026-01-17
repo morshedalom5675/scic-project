@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import React from "react";
 
 const BookCard = ({ book }) => {
@@ -14,9 +15,9 @@ const BookCard = ({ book }) => {
         
         {/* Hover Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100 flex flex-col justify-end p-6">
-          <button className="w-full bg-white text-primary py-3 rounded-xl font-bold text-sm transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0 hover:bg-secondary hover:text-white">
-            Quick View
-          </button>
+          <Link href={`/books/${book.id}`} className="w-full bg-white text-primary p-3 rounded-xl font-bold text-sm transform translate-y-4 transition-transform duration-500 group-hover:translate-y-0 hover:bg-secondary hover:text-white">
+            Quick View 
+          </Link>
         </div>
 
         {/* Floating Badge (Optional) */}

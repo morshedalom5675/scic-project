@@ -1,6 +1,14 @@
 "use client";
 import Link from "next/link";
-import { Facebook, Twitter, Instagram, Linkedin, Github } from "lucide-react"; // আইকনগুলো ইম্পোর্ট করা হয়েছে
+import {
+  Facebook,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Github,
+  Mail,
+  ArrowRight,
+} from "lucide-react";
 
 const Footer = () => {
   return (
@@ -11,8 +19,7 @@ const Footer = () => {
           {/* Brand & Logo */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              {/* Logo SVG */}
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center shadow-lg shadow-primary/20">
+              <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/20">
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"
@@ -39,7 +46,7 @@ const Footer = () => {
             <h4 className="text-sm font-bold uppercase tracking-wider text-black mb-6">
               Explore
             </h4>
-            <ul className="space-y-4 text-black/70 font-medium transition-colors">
+            <ul className="space-y-4 text-black/70 font-medium">
               <li>
                 <Link href="/" className="hover:text-primary transition-colors">
                   Home
@@ -50,12 +57,12 @@ const Footer = () => {
                   href="/books"
                   className="hover:text-primary transition-colors"
                 >
-                  Books
+                  All Books
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/categories"
+                  href="/"
                   className="hover:text-primary transition-colors"
                 >
                   Categories
@@ -72,30 +79,42 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Links: Resources */}
+          {/* Links: Support & Resources */}
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-black mb-6">
-              Resources
+              Support
             </h4>
             <ul className="space-y-4 text-black/70 font-medium">
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Reading Lists
+                <Link
+                  href="/"
+                  className="hover:text-primary transition-colors"
+                >
+                  Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Community Blog
+                <Link
+                  href="/"
+                  className="hover:text-primary transition-colors"
+                >
+                  Help & FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-primary transition-colors">
-                  Help Center
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-primary transition-colors">
+                <Link
+                  href="/privacy"
+                  className="hover:text-primary transition-colors"
+                >
                   Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="hover:text-primary transition-colors"
+                >
+                  Terms of Service
                 </Link>
               </li>
             </ul>
@@ -106,21 +125,27 @@ const Footer = () => {
             <h4 className="text-sm font-bold uppercase tracking-wider text-black mb-6">
               Stay Connected
             </h4>
-            <p className="text-black/70 mb-6">
-              Subscribe to get book updates and curated reads.
+            <p className="text-black/70 mb-6 text-sm">
+              Subscribe to get book updates and curated reads directly to your
+              inbox.
             </p>
-            <form className="flex gap-2 group">
-              <input
-                type="email"
-                placeholder="Enter email"
-                className="w-full h-11 px-4 rounded-lg border border-gray-200 bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
-              />
-              <button
-                type="submit"
-                className="h-11 px-5 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 hover:scale-105 active:scale-95 transition-all shadow-md shadow-primary/10"
-              >
-                Join
-              </button>
+            <form className="space-y-3">
+              <div className="relative group">
+                <input
+                  type="email"
+                  placeholder="Enter email"
+                  className="w-full h-12 pl-4 pr-12 rounded-xl border border-gray-200 bg-secondary text-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                />
+                <button
+                  type="submit"
+                  className="absolute right-1.5 top-1.5 w-9 h-9 rounded-lg bg-primary text-white flex items-center justify-center hover:bg-secondary transition-all shadow-md active:scale-90"
+                >
+                  <ArrowRight size={18} />
+                </button>
+              </div>
+              <p className="text-[10px] text-black/40 px-1 text-center">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
             </form>
           </div>
         </div>
@@ -129,42 +154,27 @@ const Footer = () => {
         <div className="mt-20 pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-sm text-black/50 font-medium">
             © {new Date().getFullYear()}{" "}
-            <span className="text-primary">BookVerse</span>. Crafted for
-            readers.
+            <span className="text-primary font-bold">BookVerse</span>. Crafted
+            with ❤️ for readers.
           </p>
 
-          {/* Social Icons */}
-          <div className="flex items-center gap-5">
-            <Link
-              href="#"
-              className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-black/60 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
-            >
-              <Facebook size={18} />
-            </Link>
-            <Link
-              href="#"
-              className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-black/60 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
-            >
-              <Twitter size={18} />
-            </Link>
-            <Link
-              href="#"
-              className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-black/60 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
-            >
-              <Instagram size={18} />
-            </Link>
-            <Link
-              href="#"
-              className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-black/60 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
-            >
-              <Linkedin size={18} />
-            </Link>
-            <Link
-              href="#"
-              className="w-10 h-10 rounded-full border border-gray-100 flex items-center justify-center text-black/60 hover:bg-primary hover:text-white hover:border-primary transition-all duration-300"
-            >
-              <Github size={18} />
-            </Link>
+          {/* Social Icons with Tooltips look */}
+          <div className="flex items-center gap-4">
+            {[
+              { icon: <Facebook size={18} />, link: "#" },
+              { icon: <Twitter size={18} />, link: "#" },
+              { icon: <Instagram size={18} />, link: "#" },
+              { icon: <Linkedin size={18} />, link: "#" },
+              { icon: <Github size={18} />, link: "#" },
+            ].map((social, idx) => (
+              <Link
+                key={idx}
+                href={social.link}
+                className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-black/60 hover:bg-primary hover:text-white hover:border-primary hover:-translate-y-1 transition-all duration-300"
+              >
+                {social.icon}
+              </Link>
+            ))}
           </div>
         </div>
       </div>

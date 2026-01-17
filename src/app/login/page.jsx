@@ -4,8 +4,32 @@ import Link from "next/link";
 import React from "react";
 import { motion } from "framer-motion";
 import { Book, Mail, Lock, LogIn, Github, Chrome } from "lucide-react";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 const LoginPage = () => {
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    if (email === "admin@gmail.com" && password === "123456789") {
+      const userData = { email: email, role: "admin" };
+
+      document.cookie = `user=${JSON.stringify(
+        userData
+      )}; path=/; max-age=86400`;
+
+      toast.success("Successfully Login!");
+
+      window.location.href = "/";
+    } else {
+      toast.error("Invalid email or password");
+    }
+  };
+
   // Framer Motion variants for smooth staggered animations
   const containerVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -82,7 +106,7 @@ const LoginPage = () => {
             </p>
           </motion.div>
 
-          <form className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5">
             {/* Email Input */}
             <motion.div className="form-control" variants={itemVariants}>
               <label className="label">
@@ -93,6 +117,7 @@ const LoginPage = () => {
               <div className="relative group">
                 <Mail className="absolute left-4 top-1/2 -translate-y-1/2 text-base-content/40 group-focus-within:text-primary transition-colors w-5 h-5" />
                 <input
+                  name="email"
                   type="email"
                   placeholder="name@example.com"
                   className="input input-bordered w-full h-14 bg-base-200/30 border-base-300 focus:border-primary focus:outline-none rounded-2xl pl-12 font-medium transition-all"
@@ -117,6 +142,7 @@ const LoginPage = () => {
               <div className="relative group">
                 <Lock className="absolute left-4 top-1/2 -translate-y-1/2 text-base-content/40 group-focus-within:text-primary transition-colors w-5 h-5" />
                 <input
+                  name="password"
                   type="password"
                   placeholder="••••••••"
                   className="input input-bordered w-full h-14 bg-base-200/30 border-base-300 focus:border-primary focus:outline-none rounded-2xl pl-12 font-medium transition-all"
